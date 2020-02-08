@@ -11,7 +11,7 @@ namespace CIS452_Assignment3
         public bool see;
 
         public Transform playerPos;
-        public int speed;
+        public float speed;
 
         public Player player;
 
@@ -19,9 +19,7 @@ namespace CIS452_Assignment3
         // Start is called before the first frame update
         public void Start()
         {
-            if (this == null)
-                Debug.Log("null test");
-            //this.see = false;
+            speed = Random.Range(0.25f, 1.25f);
             player.RegisterObserver(this);
         }
         public void UpdateData(bool seen)

@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using CIS452_Assignment3;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightMove : MonoBehaviour
+public class LightMove : MonoBehaviour, IObserver
 {
     // Start is called before the first frame update
     public Vector3[] localWaypoints;
@@ -14,18 +15,22 @@ public class LightMove : MonoBehaviour
     [Range(0, 2)]
     public float easeAmount;
 
+    public bool hasGem;
+
+    public Gem gem;
+
     int fromWaypointIndex;
     float percentBetweenWaypoints;
     float nextMoveTime;
 
     public void Start()
     {
-
         globalWaypoints = new Vector3[localWaypoints.Length];
         for (int i = 0; i < localWaypoints.Length; i++)
         {
             globalWaypoints[i] = localWaypoints[i] + transform.position;
         }
+        gem.RegisterObserver(this);
     }
 
     void FixedUpdate()
@@ -35,6 +40,12 @@ public class LightMove : MonoBehaviour
         Vector3 velocity = CalculatePlatformMovement();
 
         transform.Translate(velocity);
+
+        if(hasGem == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(this);
+        }
     }
 
     float Ease(float x)
@@ -92,5 +103,10 @@ public class LightMove : MonoBehaviour
                 Gizmos.DrawLine(globalWaypointPos - Vector3.left * size, globalWaypointPos + Vector3.left * size);
             }
         }
+    }
+
+    public void UpdateData(bool bol)
+    {
+        this.hasGem = bol;
     }
 }

@@ -13,6 +13,7 @@ namespace CIS452_Assignment3
         public float speed;
 
         private bool see;
+        private bool gem;
 
         private Rigidbody2D rb2d;
         private Vector2 moveSpeed;
@@ -23,8 +24,6 @@ namespace CIS452_Assignment3
             foreach (IObserver observer in observers)
             {
                 observer.UpdateData(see);
-                //include data as parameters to UpdateData
-                Debug.Log("UpdateData was called from Notify Observers");
             }
         }
 
@@ -45,14 +44,18 @@ namespace CIS452_Assignment3
         }
         public void SetAgro(bool seen)
         {
-            this.see = seen;
+            if(gem == true)      
+                this.see = true;
+            else
+                this.see = seen;
             NotifyObservers();
         }
 
         // Start is called before the first frame update
         void Start()
         {
-           see = false;
+            see = false;
+            gem = false;
             rb2d = GetComponent<Rigidbody2D>();
 
         }
@@ -77,13 +80,33 @@ namespace CIS452_Assignment3
         void OnTriggerEnter2D(Collider2D col)
         {
             Debug.Log("trigger enter");
+            /*if (col.gameObject.CompareTag("Sight"))
+            {
+                SetAgro(true);
+            }*/
+            if (col.gameObject.CompareTag("Enemy"))
+            {
+                SceneManager.LoadScene("DeathMenu");
+
+                Debug.Log("Enemy Hit");
+            }
+            if (col.gameObject.CompareTag("Gem"))
+            {
+                gem = true;
+                SetAgro(true);
+                Destroy(col.gameObject);
+            }
+            if (col.gameObject.CompareTag("Exit"))
+            {
+                if (gem == true)
+                    SceneManager.LoadScene("EndMenu");
+            }
+        }
+        void OnTriggerStay2D(Collider2D col)
+        {
             if (col.gameObject.CompareTag("Sight"))
             {
                 SetAgro(true);
-            }
-            if (col.gameObject.CompareTag("Enemy"))
-            {
-                Debug.Log("Enemy Hit");
             }
         }
         void OnTriggerExit2D(Collider2D col)
