@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Matt Kirchoff
+ * Guard.cs
+ * Assignment 3
+ * Observer to player class. when player is seen, object moves toward player. random speed variable set upon start
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +25,7 @@ namespace CIS452_Assignment3
         // Start is called before the first frame update
         public void Start()
         {
-            speed = Random.Range(0.25f, 1.25f);
+            speed = Random.Range(0.25f, 1f);
             player.RegisterObserver(this);
         }
         public void UpdateData(bool seen)

@@ -1,4 +1,10 @@
-﻿using CIS452_Assignment3;
+﻿/*
+ * Matt Kirchoff
+ * Gem.cs
+ * Assignment 3
+ * Gem Subject with observers of light / aura objects and populates them in list. When gem is collected, disables the auras.
+ */
+using CIS452_Assignment3;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

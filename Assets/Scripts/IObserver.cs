@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Matt Kirchoff
+ * IObserver.cs
+ * Assignment 3
+ * Observer interface
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

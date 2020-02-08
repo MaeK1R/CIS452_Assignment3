@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ * Matt Kirchoff
+ * CameraScale.cs
+ * Assignment 3
+ * Scales camera to right fit
+ */
+using UnityEngine;
 using System.Collections.Generic;
 
-/// <summary>
-/// Skrypt odpowiada za usatwienie rozdzielczosci kemerze
-/// </summary>
 public class CameraScale : MonoBehaviour
 {
 

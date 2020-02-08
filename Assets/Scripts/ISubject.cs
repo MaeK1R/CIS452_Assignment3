@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Matt Kirchoff
+ * ISubject.cs
+ * Assignment 3
+ * Subject interface
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

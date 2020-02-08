@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+ * Matt Kirchoff
+ * Score.cs
+ * Assignment 3
+ * score controller and displayer, based off time
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

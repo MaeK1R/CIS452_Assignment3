@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Matt Kirchoff
+ * Player.cs
+ * Assignment 3
+ * Subject to enemy observer. Player controller. When player enters or leaves light / aura object, it updates observers
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

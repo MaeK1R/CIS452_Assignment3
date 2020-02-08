@@ -1,4 +1,10 @@
-﻿using CIS452_Assignment3;
+﻿/*
+ * Matt Kirchoff
+ * LightMove.cs
+ * Assignment 3
+ * Obeserver class to the light / aura objects. When data is updated, it deactivates all the observers.
+ */
+using CIS452_Assignment3;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
